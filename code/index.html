@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molly McDade - Data Analytics Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #5a67d8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+            color: #666;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .code-display {
+            background: #f4f4f4;
+            border-left: 4px solid #667eea;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Molly McDade</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Data Analytics Portfolio</h1>
+            <p>Transforming data into actionable insights through advanced analytics, visualization, and machine learning</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="/resume.pdf" class="btn" target="_blank">Download Resume</a>
+                <a href="mailto:mollytessmcdade@gmail.com" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Marketing Campaign Analytics Dashboard</h3>
+                        <p class="project-description">Power BI dashboard analyzing think tank partnerships and ROI metrics, tracking clicks, website views, and engagement to optimize marketing spend.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Marketing Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openModal('dashboard1')">View Dashboard</a>
+                            <a href="#" class="project-link" onclick="openModal('code1')">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">UFC Fighter Prediction Model</h3>
+                        <p class="project-description">Machine learning model predicting UFC fight outcomes based on fighter physical characteristics using advanced statistical techniques.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openModal('ml1')">View Analysis</a>
+                            <a href="#" class="project-link" onclick="openModal('code2')">Python Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Slay-gent AI Shopping Assistant</h3>
+                        <p class="project-description">AI-powered tool recommending outfits based on local weather data, combining API integration with machine learning recommendations.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">APIs</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openModal('ai1')">View Demo</a>
+                            <a href="#" class="project-link" onclick="openModal('code3')">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Time Series Forecasting Analysis</h3>
+                        <p class="project-description">Advanced time series analysis and forecasting models for business metrics using statistical techniques and validation methods.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">R</span>
+                            <span class="tech-tag">Time Series</span>
+                            <span class="tech-tag">Forecasting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openModal('ts1')">View Analysis</a>
+                            <a href="#" class="project-link" onclick="openModal('code4')">R Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">A/B Testing Framework</h3>
+                        <p class="project-description">Statistical framework for designing and analyzing A/B tests, including power analysis, significance testing, and results interpretation.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Statistics</span>
+                            <span class="tech-tag">A/B Testing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openModal('ab1')">View Framework</a>
+                            <a href="#" class="project-link" onclick="openModal('code5')">Python Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">International UAV Sales Dashboard</h3>
+                        <p class="project-description">Tableau dashboard analyzing international UAV sales trends for strategic decision-making and legislative advocacy insights.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">Business Intelligence</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" onclick="openModal('tableau1')">View Dashboard</a>
+                            <a href="#" class="project-link" onclick="openModal('case1')">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python (Pandas, NumPy, Scikit-learn)</li>
+                        <li>R (ggplot2, dplyr, tidyr)</li>
+                        <li>SQL (PostgreSQL, MySQL)</li>
+                        <li>HTML/CSS/JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Data Visualization</h3>
+                    <ul class="skill-list">
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>Matplotlib/Seaborn</li>
+                        <li>ggplot2</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Analytics & ML</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning</li>
+                        <li>Statistical Analysis</li>
+                        <li>A/B Testing</li>
+                        <li>Time Series Forecasting</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li>Alteryx</li>
+                        <li>Tableau Prep Builder</li>
+                        <li>Microsoft Dynamics CRM</li>
+                        <li>Git/GitHub</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    I'm a recent graduate from William & Mary with a Master of Science in Business Analytics and a passion for transforming complex data into actionable insights. My experience spans from developing strategic CRM systems at General Atomics to creating innovative AI-powered applications.
+                </p>
+                <p class="about-text">
+                    With a strong foundation in SQL, Python, R, and advanced visualization tools, I specialize in marketing analytics, predictive modeling, and statistical analysis. I thrive in collaborative environments where data-driven decision making drives business success.
+                </p>
+                <p class="about-text">
+                    When I'm not analyzing data, you can find me exploring new visualization techniques, contributing to open-source projects, or staying current with the latest developments in machine learning and business intelligence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>mollytessmcdade@gmail.com</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>(703) 577-2451</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://linkedin.com/in/yourprofile" target="_blank">Connect with me</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/yourusername" target="_blank">View my code</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Molly McDade. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals for project details -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functionality
+        function openModal(contentType) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Sample content - replace with your actual content
+            const content = {
+                'dashboard1': `
+                    <h2>Marketing Campaign Analytics Dashboard</h2>
+                    <div class="pdf-viewer-placeholder" style="height: 400px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                        <p>Power BI Dashboard Screenshot/PDF would be embedded here</p>
+                    </div>
+                    <p>This dashboard tracks key marketing metrics including ROI, engagement rates, and campaign performance across multiple channels.</p>
+                `,
+                'code1': `
+                    <h2>Dashboard SQL Queries</h2>
+                    <div class="code-display">
+-- Marketing Campaign Performance Query
+SELECT 
+    campaign_name,
+    SUM(clicks) as total_clicks,
+    SUM(impressions) as total_impressions,
+    SUM(cost) as total_cost,
+    (SUM(clicks) * 1.0 / SUM(impressions)) * 100 as ctr,
+    SUM(cost) / SUM(clicks) as cpc
+FROM marketing_campaigns 
+WHERE date_range BETWEEN '2024-01-01' AND '2024-12-31'
+GROUP BY campaign_name
+ORDER BY total_clicks DESC;
+                    </div>
+                `,
+                'ml1': `
+                    <h2>UFC Fighter Prediction Analysis</h2>
+                    <p>Machine learning model achieving 73% accuracy in predicting fight outcomes using fighter statistics.</p>
+                    <div class="code-display">
+# Key features used in the model
+features = ['height', 'weight', 'reach', 'age', 'wins', 'losses', 
+           'striking_accuracy', 'takedown_accuracy']
+
+# Model performance metrics
+Accuracy: 73.2%
+Precision: 71.8%
+Recall: 74.1%
+F1-Score: 72.9%
+                    </div>
+                `,
+                'code2': `
+                    <h2>UFC Prediction Model Code</h2>
+                    <div class="code-display">
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
+
+# Load and preprocess data
+df = pd.read_csv('ufc_data.csv')
+X = df[['height', 'weight', 'reach', 'age', 'wins', 'losses']]
+y = df['fight_result']
+
+# Split data and train model
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+model = RandomForestClassifier(n_estimators=100)
+model.fit(X_train, y_train)
+
+# Evaluate model
+predictions = model.predict(X_test)
+print(classification_report(y_test, predictions))
+                    </div>
+                `
+            };
+            
+            modalBody.innerHTML = content[contentType] || '<p>Content not available</p>';
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card, .skill-category').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

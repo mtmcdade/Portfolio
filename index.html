@@ -66,6 +66,30 @@
             text-align: center;
         }
 
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+
+        .profile-photo-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin: 0 auto 2rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -117,6 +141,29 @@
             border-radius: 10px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .project-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
         }
 
         .project-card h3 {
@@ -259,6 +306,11 @@
 
     <section id="home" class="hero">
         <div class="container">
+            <img src="photos/molly-profile.jpg" alt="Molly McDade" class="profile-photo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="profile-photo-placeholder">
+                👩‍💼
+            </div>
             <h1>Molly McDade</h1>
             <p>Data Analytics Professional | SQL | Python | Tableau | Power BI</p>
             <a href="#projects" class="btn">View My Work</a>
@@ -266,7 +318,17 @@
         </div>
     </section>
 
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+
                 <div class="project-card">
+                    <img src="photos/ufc-prediction.jpg" alt="UFC Fighter Prediction Model" class="project-image" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="project-image-placeholder" style="display: none;">
+                        🥊 UFC Analytics
+                    </div>
                     <h3>UFC Fighter Prediction Model</h3>
                     <p>Machine learning model predicting UFC fight outcomes based on fighter physical characteristics, achieving 73% accuracy using Random Forest.</p>
                     <div class="tech-tags">
@@ -281,6 +343,11 @@
                 </div>
 
                 <div class="project-card">
+                    <img src="photos/slaygent-ai.jpg" alt="Slay-gent AI Shopping Assistant" class="project-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="project-image-placeholder" style="display: none;">
+                        👗 AI Fashion Assistant
+                    </div>
                     <h3>Slay-gent AI Shopping Assistant</h3>
                     <p>AI-powered application recommending outfits based on local weather data, combining weather APIs with machine learning recommendations.</p>
                     <div class="tech-tags">
@@ -295,6 +362,11 @@
                 </div>
 
                 <div class="project-card">
+                    <img src="photos/uav-dashboard.jpg" alt="International UAV Sales Dashboard" class="project-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="project-image-placeholder" style="display: none;">
+                        📊 UAV Sales Dashboard
+                    </div>
                     <h3>International UAV Sales Dashboard</h3>
                     <p>Tableau visualization analyzing global UAV sales trends for strategic decision-making and legislative advocacy at General Atomics.</p>
                     <div class="tech-tags">
@@ -309,6 +381,11 @@
                 </div>
 
                 <div class="project-card">
+                    <img src="photos/ab-testing.jpg" alt="A/B Testing Framework" class="project-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="project-image-placeholder" style="display: none;">
+                        📈 A/B Testing Framework
+                    </div>
                     <h3>A/B Testing Framework</h3>
                     <p>Statistical framework for designing and analyzing A/B tests, including power analysis, significance testing, and results interpretation.</p>
                     <div class="tech-tags">
@@ -323,6 +400,11 @@
                 </div>
 
                 <div class="project-card">
+                    <img src="photos/time-series.jpg" alt="Time Series Forecasting" class="project-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="project-image-placeholder" style="display: none;">
+                        📉 Time Series Analysis
+                    </div>
                     <h3>Time Series Forecasting</h3>
                     <p>Advanced time series analysis and forecasting models for business metrics using R, including seasonal decomposition and ARIMA models.</p>
                     <div class="tech-tags">

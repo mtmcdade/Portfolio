@@ -1,4 +1,4 @@
-F<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -130,74 +130,94 @@ F<!DOCTYPE html>
             color: #2c3e50;
         }
 
+        /* IMPROVED PROJECT GRID - More space for projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased from 300px */
+            gap: 3rem; /* Increased from 2rem */
+            max-width: 1400px; /* Allow wider container */
+            margin: 0 auto;
         }
 
+        /* BIGGER PROJECT CARDS */
         .project-card {
             background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px; /* Slightly more rounded */
+            padding: 2.5rem; /* Increased padding */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Enhanced shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: auto;
+            min-height: 500px; /* Ensure minimum height */
         }
 
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+
+        /* BIGGER PROJECT IMAGES */
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 250px; /* Increased from 200px */
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
         }
 
         .project-image-placeholder {
             width: 100%;
-            height: 200px;
+            height: 250px; /* Increased from 200px */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* Increased font size */
             font-weight: bold;
             text-align: center;
         }
 
         .project-card h3 {
             color: #2c3e50;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem; /* Larger title */
         }
 
         .project-card p {
             color: #666;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         .tech-tags {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
             background: #667eea;
             color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 8px;
+            padding: 6px 12px; /* Increased padding */
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
         .project-links a {
             display: inline-block;
             background: #2c3e50;
             color: white;
-            padding: 8px 16px;
+            padding: 12px 20px; /* Increased padding */
             text-decoration: none;
-            border-radius: 4px;
-            margin-right: 10px;
-            margin-top: 10px;
+            border-radius: 6px;
+            margin-right: 12px;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
         }
 
         .project-links a:hover {
@@ -284,8 +304,22 @@ F<!DOCTYPE html>
                 display: none;
             }
             
+            /* Mobile: single column with full width */
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-card {
+                min-height: 450px;
+            }
+        }
+
+        /* For larger screens, limit to 2 columns max for better readability */
+        @media (min-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4rem;
             }
         }
     </style>
@@ -377,25 +411,6 @@ F<!DOCTYPE html>
                     <div class="project-links">
                         <a href="https://public.tableau.com/profile/yourname" target="_blank">View on Tableau Public</a>
                         <a href="pdfs/uav-dashboard.pdf" target="_blank">View PDF</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="photos/ab-testing.jpg" alt="A/B Testing Framework" class="project-image"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="project-image-placeholder" style="display: none;">
-                        📈 A/B Testing Framework
-                    </div>
-                    <h3>A/B Testing Framework</h3>
-                    <p>Statistical framework for designing and analyzing A/B tests, including power analysis, significance testing, and results interpretation.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Statistics</span>
-                        <span class="tech-tag">A/B Testing</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/ab-testing" target="_blank">View Code</a>
-                        <a href="notebooks/ab-testing-guide.html" target="_blank">View Guide</a>
                     </div>
                 </div>
 

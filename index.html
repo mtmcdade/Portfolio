@@ -116,7 +116,7 @@
         }
 
         .section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .section:nth-child(even) {
@@ -126,97 +126,101 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             color: #2c3e50;
         }
 
-        /* IMPROVED PROJECT GRID - More space for projects */
+        /* MUCH BIGGER PROJECT GRID */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Increased from 300px */
-            gap: 3rem; /* Increased from 2rem */
-            max-width: 1400px; /* Allow wider container */
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr)); /* Increased from 400px */
+            gap: 4rem; /* Increased gap */
+            max-width: 1600px; /* Even wider container */
             margin: 0 auto;
         }
 
-        /* BIGGER PROJECT CARDS */
+        /* MUCH BIGGER PROJECT CARDS */
         .project-card {
             background: white;
-            border-radius: 15px; /* Slightly more rounded */
-            padding: 2.5rem; /* Increased padding */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Enhanced shadow */
+            border-radius: 20px; /* More rounded */
+            padding: 3.5rem; /* Significantly increased padding */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15); /* Enhanced shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: auto;
-            min-height: 500px; /* Ensure minimum height */
+            min-height: 650px; /* Increased minimum height */
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
         }
 
-        /* BIGGER PROJECT IMAGES */
+        /* MUCH BIGGER PROJECT IMAGES */
         .project-image {
             width: 100%;
-            height: 250px; /* Increased from 200px */
+            height: 350px; /* Significantly increased from 250px */
             object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border: 2px solid #f0f0f0;
         }
 
         .project-image-placeholder {
             width: 100%;
-            height: 250px; /* Increased from 200px */
+            height: 350px; /* Significantly increased from 250px */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem; /* Increased font size */
+            font-size: 2rem; /* Increased font size */
             font-weight: bold;
             text-align: center;
         }
 
         .project-card h3 {
             color: #2c3e50;
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem; /* Larger title */
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem; /* Much larger title */
+            font-weight: bold;
         }
 
         .project-card p {
             color: #666;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1.1rem; /* Larger text */
+            line-height: 1.7;
         }
 
         .tech-tags {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .tech-tag {
             background: #667eea;
             color: white;
-            padding: 6px 12px; /* Increased padding */
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin-right: 10px;
-            margin-bottom: 8px;
+            padding: 8px 16px; /* Increased padding */
+            border-radius: 8px;
+            font-size: 0.9rem; /* Slightly larger */
+            margin-right: 12px;
+            margin-bottom: 10px;
             display: inline-block;
+            font-weight: 500;
         }
 
         .project-links a {
             display: inline-block;
             background: #2c3e50;
             color: white;
-            padding: 12px 20px; /* Increased padding */
+            padding: 14px 24px; /* Increased padding */
             text-decoration: none;
-            border-radius: 6px;
-            margin-right: 12px;
-            margin-top: 12px;
-            font-size: 0.95rem;
+            border-radius: 8px;
+            margin-right: 15px;
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: 500;
             transition: background 0.3s ease;
         }
 
@@ -307,19 +311,46 @@
             /* Mobile: single column with full width */
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .project-card {
+                min-height: 550px;
+                padding: 2.5rem;
+            }
+            
+            .project-image,
+            .project-image-placeholder {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
                 gap: 2rem;
             }
             
             .project-card {
-                min-height: 450px;
+                min-height: 500px;
+                padding: 2rem;
+            }
+            
+            .project-image,
+            .project-image-placeholder {
+                height: 220px;
+            }
+            
+            .project-card h3 {
+                font-size: 1.5rem;
             }
         }
 
-        /* For larger screens, limit to 2 columns max for better readability */
-        @media (min-width: 1200px) {
+        /* For larger screens, optimize layout */
+        @media (min-width: 1400px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 4rem;
+                gap: 5rem;
             }
         }
     </style>

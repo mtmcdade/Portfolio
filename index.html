@@ -133,25 +133,27 @@
             color: #2c3e50;
         }
 
-        /* WIDER PROJECTS CONTAINER */
+        /* MUCH WIDER PROJECTS CONTAINER */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr; /* CHANGED: Single column for maximum width */
             gap: 3rem;
-            max-width: 1800px; /* INCREASED from 1400px for wider layout */
+            max-width: 2200px; /* INCREASED for much wider layout */
             margin: 0 auto;
         }
 
-        /* WIDER PROJECT CARDS */
+        /* MUCH WIDER PROJECT CARDS */
         .project-card {
             background: white;
             border-radius: 20px;
-            padding: 3rem 4rem; /* INCREASED padding for wider cards */
+            padding: 3rem 6rem; /* INCREASED horizontal padding significantly */
             box-shadow: 0 12px 35px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: auto;
-            min-height: 900px;
+            min-height: 600px; /* REDUCED height since we're going wider */
             width: 100%;
+            max-width: 2000px; /* ADDED: Maximum width for very wide cards */
+            margin: 0 auto; /* ADDED: Center the cards */
         }
 
         .project-card:hover {
@@ -384,17 +386,18 @@
             }
         }
 
-        /* WIDER LAYOUT FOR LARGE SCREENS */
+        /* MUCH WIDER LAYOUT FOR LARGE SCREENS */
         @media (min-width: 1400px) {
             .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr; /* KEEP single column for width */
                 gap: 4rem;
-                max-width: 2000px; /* INCREASED from 1600px for even wider layout */
+                max-width: 2400px; /* INCREASED for maximum width */
             }
             
             .project-card {
-                padding: 4rem 5rem; /* INCREASED padding for large screens */
-                min-height: 950px;
+                padding: 4rem 8rem; /* INCREASED horizontal padding dramatically */
+                min-height: 650px;
+                max-width: 2200px; /* INCREASED maximum width */
             }
             
             .project-image,

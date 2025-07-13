@@ -133,24 +133,24 @@
             color: #2c3e50;
         }
 
-        /* 2 PROJECTS PER ROW GRID */
+        /* WIDER PROJECTS CONTAINER */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+            grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
-            max-width: 1400px; /* Optimized for 2 columns */
+            max-width: 1800px; /* INCREASED from 1400px for wider layout */
             margin: 0 auto;
         }
 
-        /* OPTIMIZED PROJECT CARDS FOR 2-COLUMN LAYOUT */
+        /* WIDER PROJECT CARDS */
         .project-card {
             background: white;
             border-radius: 20px;
-            padding: 2.5rem 3rem; /* Balanced padding for 2-column layout */
+            padding: 3rem 4rem; /* INCREASED padding for wider cards */
             box-shadow: 0 12px 35px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: auto;
-            min-height: 900px; /* Reduced height for 2-column layout */
+            min-height: 900px;
             width: 100%;
         }
 
@@ -159,20 +159,19 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.25);
         }
 
-        /* UNCROPPED PROJECT IMAGES - SMALLER BUT FULL */
         .project-image {
             width: 100%;
-            height: 400px; /* Smaller height for 2-column layout */
-            object-fit: contain; /* CHANGED: Shows full image without cropping */
+            height: 400px;
+            object-fit: contain;
             border-radius: 15px;
             margin-bottom: 2rem;
             border: 2px solid #f0f0f0;
-            background: #f8f9fa; /* Light background for letterboxing */
+            background: #f8f9fa;
         }
 
         .project-image-placeholder {
             width: 100%;
-            height: 400px; /* Smaller height for 2-column layout */
+            height: 400px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 15px;
             margin-bottom: 2rem;
@@ -180,7 +179,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem; /* Adjusted for smaller size */
+            font-size: 2rem;
             font-weight: bold;
             text-align: center;
         }
@@ -297,12 +296,16 @@
 
         .contact-item p {
             font-size: 1.2rem; /* Added explicit larger font size */
+            word-wrap: break-word; /* ADDED: Ensures long emails wrap properly */
+            overflow-wrap: break-word; /* ADDED: Additional support for email wrapping */
         }
 
         .contact-item a {
             color: #667eea;
             text-decoration: none;
             font-size: 1.2rem; /* Added explicit larger font size */
+            word-wrap: break-word; /* ADDED: Ensures long emails wrap properly */
+            overflow-wrap: break-word; /* ADDED: Additional support for email wrapping */
         }
 
         footer {
@@ -326,15 +329,16 @@
                 display: none;
             }
             
-            /* Mobile: single column */
+            /* Mobile: single column with wider container */
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                max-width: 100%; /* Full width on mobile */
             }
             
             .project-card {
-                min-height: 800px; /* Adjusted for mobile */
-                padding: 2rem;
+                min-height: 800px;
+                padding: 2rem; /* Adequate padding for mobile */
             }
             
             .project-card h3 {
@@ -362,40 +366,40 @@
             }
             
             .project-card {
-                min-height: 750px; /* Adjusted for smaller mobile */
+                min-height: 750px;
                 padding: 1.5rem;
             }
             
             .project-image,
             .project-image-placeholder {
-                height: 300px; /* Adjusted for smaller mobile */
+                height: 300px;
             }
             
             .project-card h3 {
-                font-size: 1.8rem; /* Increased from 1.5rem */
+                font-size: 1.8rem;
             }
             
             .project-card p {
-                font-size: 1.1rem; /* Added for mobile */
+                font-size: 1.1rem;
             }
         }
 
-        /* For very large screens, maintain 2 columns */
+        /* WIDER LAYOUT FOR LARGE SCREENS */
         @media (min-width: 1400px) {
             .projects-grid {
-                grid-template-columns: repeat(2, 1fr); /* Keep 2 columns */
+                grid-template-columns: repeat(2, 1fr);
                 gap: 4rem;
-                max-width: 1600px; /* Wider for large screens */
+                max-width: 2000px; /* INCREASED from 1600px for even wider layout */
             }
             
             .project-card {
-                padding: 3rem 4rem; /* More padding on large screens */
-                min-height: 950px; /* Adjusted for large screens */
+                padding: 4rem 5rem; /* INCREASED padding for large screens */
+                min-height: 950px;
             }
             
             .project-image,
             .project-image-placeholder {
-                height: 450px; /* Slightly larger for big screens */
+                height: 450px;
             }
         }
     </style>
@@ -460,8 +464,8 @@
                     <div class="project-image-placeholder" style="display: none;">
                         📊 UAV Sales Dashboard
                     </div>
-                    <h3> Tableau UAV Sales Dashboard</h3>
-                    <p> Visualization analyzing global UAV sales trends for strategic decision-making and legislative advocacy at General Atomics. This comprehensive dashboard provides insights into market penetration, sales performance by region, and competitive analysis to support executive-level decisions and policy development.</p>
+                    <h3>International UAV Sales Dashboard</h3>
+                    <p>Tableau visualization analyzing global UAV sales trends for strategic decision-making and legislative advocacy at General Atomics. This comprehensive dashboard provides insights into market penetration, sales performance by region, and competitive analysis to support executive-level decisions and policy development.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Tableau</span>
                         <span class="tech-tag">Data Visualization</span>
@@ -520,7 +524,7 @@
                     <div class="project-image-placeholder" style="display: none;">
                         📈 A/B Testing Analysis
                     </div>
-                    <h3> A/B Testing Analysis: E-commerce </h3>
+                    <h3>E-commerce A/B Testing Analysis</h3>
                     <p>Comprehensive statistical analysis of website conversion optimization experiments, including power analysis, sample size calculations, and statistical significance testing. Applied advanced statistical methods to evaluate multiple testing scenarios and provided actionable recommendations for website improvements, resulting in measurable conversion rate increases.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>

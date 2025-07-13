@@ -133,24 +133,24 @@
             color: #2c3e50;
         }
 
-        /* MUCH WIDER PROJECT GRID */
+        /* 2 PROJECTS PER ROW GRID */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr)); /* Much wider minimum */
+            grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
             gap: 3rem;
-            max-width: 1800px; /* Wider container */
+            max-width: 1400px; /* Optimized for 2 columns */
             margin: 0 auto;
         }
 
-        /* MUCH WIDER AND TALLER PROJECT CARDS */
+        /* OPTIMIZED PROJECT CARDS FOR 2-COLUMN LAYOUT */
         .project-card {
             background: white;
             border-radius: 20px;
-            padding: 3rem 4rem; /* More horizontal padding */
+            padding: 2.5rem 3rem; /* Balanced padding for 2-column layout */
             box-shadow: 0 12px 35px rgba(0,0,0,0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: auto;
-            min-height: 1200px; /* ENORMOUS INCREASE from 900px to 1200px */
+            min-height: 900px; /* Reduced height for 2-column layout */
             width: 100%;
         }
 
@@ -159,19 +159,20 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.25);
         }
 
-        /* ENORMOUS PROJECT IMAGES */
+        /* UNCROPPED PROJECT IMAGES - SMALLER BUT FULL */
         .project-image {
             width: 100%;
-            height: 700px; /* ENORMOUS INCREASE from 500px to 700px */
-            object-fit: cover;
+            height: 400px; /* Smaller height for 2-column layout */
+            object-fit: contain; /* CHANGED: Shows full image without cropping */
             border-radius: 15px;
             margin-bottom: 2rem;
             border: 2px solid #f0f0f0;
+            background: #f8f9fa; /* Light background for letterboxing */
         }
 
         .project-image-placeholder {
             width: 100%;
-            height: 700px; /* ENORMOUS INCREASE from 500px to 700px */
+            height: 400px; /* Smaller height for 2-column layout */
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 15px;
             margin-bottom: 2rem;
@@ -179,7 +180,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2.5rem; /* Increased from 2rem */
+            font-size: 2rem; /* Adjusted for smaller size */
             font-weight: bold;
             text-align: center;
         }
@@ -325,14 +326,14 @@
                 display: none;
             }
             
-            /* Mobile: single column with full width */
+            /* Mobile: single column */
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
             
             .project-card {
-                min-height: 1000px; /* ENORMOUS INCREASE for mobile */
+                min-height: 800px; /* Adjusted for mobile */
                 padding: 2rem;
             }
             
@@ -346,7 +347,7 @@
             
             .project-image,
             .project-image-placeholder {
-                height: 550px; /* ENORMOUS INCREASE from 400px to 550px */
+                height: 350px; /* Adjusted for mobile */
             }
             
             .section-title {
@@ -361,13 +362,13 @@
             }
             
             .project-card {
-                min-height: 950px; /* ENORMOUS INCREASE from 700px to 950px */
+                min-height: 750px; /* Adjusted for smaller mobile */
                 padding: 1.5rem;
             }
             
             .project-image,
             .project-image-placeholder {
-                height: 500px; /* ENORMOUS INCREASE from 350px to 500px */
+                height: 300px; /* Adjusted for smaller mobile */
             }
             
             .project-card h3 {
@@ -379,22 +380,22 @@
             }
         }
 
-        /* For very large screens, limit to single column to maximize width */
+        /* For very large screens, maintain 2 columns */
         @media (min-width: 1400px) {
             .projects-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr); /* Keep 2 columns */
                 gap: 4rem;
-                max-width: 1200px;
+                max-width: 1600px; /* Wider for large screens */
             }
             
             .project-card {
-                padding: 3rem 5rem; /* Even more horizontal padding on large screens */
-                min-height: 1300px; /* ENORMOUS INCREASE for large screens */
+                padding: 3rem 4rem; /* More padding on large screens */
+                min-height: 950px; /* Adjusted for large screens */
             }
             
             .project-image,
             .project-image-placeholder {
-                height: 750px; /* ENORMOUS INCREASE for large screens */
+                height: 450px; /* Slightly larger for big screens */
             }
         }
     </style>
@@ -434,13 +435,13 @@
 
                 <!-- 1. Power BI Aritzia Dashboard (NEW - first project) -->
                 <div class="project-card">
-                    <img src="photos/ATZ.png" alt="Power BI Aritzia Dashboard" class="project-image"
+                    <img src="photos/ATZ.PNG" alt="Power BI Aritzia Dashboard" class="project-image"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="project-image-placeholder" style="display: none;">
                         📊 Aritzia Dashboard
                     </div>
                     <h3>Power BI Aritzia Dashboard</h3>
-                    <p>Dashboard analyzing Aritzia, a premium Canadian women's fashion retailer known for elevated basics and contemporary styles. This financial analysis dashboard combines annual financial reports from 2020-2025 with ATZ stock data to provide insights into revenue trends, profitability metrics, stock performance, and key financial indicators. The dashboard supports strategic decision-making by visualizing the company's financial health and stock performance over a five-year period.</p>
+                    <p>Comprehensive Power BI dashboard analyzing Aritzia, a premium Canadian women's fashion retailer known for elevated basics and contemporary styles. This financial analysis dashboard combines annual financial reports from 2020-2025 with ATZ stock data to provide insights into revenue trends, profitability metrics, market performance, and key financial indicators. The dashboard supports strategic decision-making by visualizing the company's financial health and stock performance over a five-year period.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Power BI</span>
                         <span class="tech-tag">Financial Analysis</span>
@@ -459,8 +460,8 @@
                     <div class="project-image-placeholder" style="display: none;">
                         📊 UAV Sales Dashboard
                     </div>
-                    <h3>International UAV Sales Dashboard</h3>
-                    <p>Tableau visualization analyzing global UAV sales trends for strategic decision-making and legislative advocacy at General Atomics. This dashboard provides insights into market penetration, sales performance by region, and competitive analysis to support executive-level decisions and policy development.</p>
+                    <h3> Tableau UAV Sales Dashboard</h3>
+                    <p> Visualization analyzing global UAV sales trends for strategic decision-making and legislative advocacy at General Atomics. This comprehensive dashboard provides insights into market penetration, sales performance by region, and competitive analysis to support executive-level decisions and policy development.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Tableau</span>
                         <span class="tech-tag">Data Visualization</span>
@@ -473,13 +474,13 @@
 
                 <!-- 3. JP Morgan Investment Simulation (moved to third) -->
                 <div class="project-card">
-                    <img src="photos/JPM.png" alt="JP Morgan Investment Simulation" class="project-image"
+                    <img src="photos/JPM.jpeg" alt="JP Morgan Investment Simulation" class="project-image"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="project-image-placeholder" style="display: none;">
                         📈 JP Morgan Stock Analysis
                     </div>
                     <h3>Python 10 Year Investment Simulation: JP Morgan</h3>
-                    <p> Financial analysis and 10-year investment simulation for JP Morgan stock using Python. This project models various investment scenarios including worst case, bear case, base case, bull case, and best case outcomes. The analysis incorporates JP Morgan's diversified business model across investment banking, consumer banking, asset management, and commercial banking, evaluating risk factors and growth opportunities to provide data-driven investment recommendations.</p>
+                    <p>Comprehensive financial analysis and 10-year investment simulation for JP Morgan stock using Python. This project models various investment scenarios including worst case, bear case, base case, bull case, and best case outcomes. The analysis incorporates JP Morgan's diversified business model across investment banking, consumer banking, asset management, and commercial banking, evaluating risk factors and growth opportunities to provide data-driven investment recommendations.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Financial Modeling</span>
@@ -519,8 +520,8 @@
                     <div class="project-image-placeholder" style="display: none;">
                         📈 A/B Testing Analysis
                     </div>
-                    <h3>E-commerce A/B Testing Analysis</h3>
-                    <p> Statistical analysis of website conversion optimization experiments, including power analysis, sample size calculations, and statistical significance testing. Applied advanced statistical methods to evaluate multiple testing scenarios and provided actionable recommendations for website improvements, resulting in measurable conversion rate increases.</p>
+                    <h3> A/B Testing Analysis: E-commerce </h3>
+                    <p>Comprehensive statistical analysis of website conversion optimization experiments, including power analysis, sample size calculations, and statistical significance testing. Applied advanced statistical methods to evaluate multiple testing scenarios and provided actionable recommendations for website improvements, resulting in measurable conversion rate increases.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Statistical Analysis</span>
